@@ -87,14 +87,14 @@ src/
 
 3. **Start the Application:**
 
-   Using Docker Compose (for the complete environment):
-   ```bash
-   docker-compose up
-   ```
-
-   Alternatively, run the app locally:
+   Run the app locally using poetry:
    ```bash
    poetry run uvicorn src.main:app --reload
+   ```
+
+   Alternatively, run using docker compose:
+   ```bash
+   docker-compose up
    ```
 
 Your service is ready, now go and see generated docs [here](http://localhost:8000/docs) and [here](http://localhost:8000/redoc)
