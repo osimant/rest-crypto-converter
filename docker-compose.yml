@@ -1,0 +1,26 @@
+services:
+
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: python -m src.main
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    healthcheck:
+      test: wget --no-verbose -O /dev/null --tries=1 http://localhost:8000/healthcheck || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  redis:
+    image: redis:7.2-bookworm
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    env_file:
+      - .env
+    volumes:
+      - .redis.conf:/usr/local/etc/redis/redis.conf

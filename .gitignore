@@ -1,0 +1,16 @@
+
+.venv
+.idea
+.pytest_cache
+__pycache__
+logfile.log
+manifest.json
+__pycache__/
+**/__pycache__/
+
+.*
+
+!.gitignore
+!.dockerignore
+!.github
+!.pre-commit-config.yaml
